@@ -31,4 +31,18 @@ public class DateCheckerTest {
         assertTrue(actual,expectedMessage);
     }
 
+    @Test
+    public void testFebruaryDoesNotHave31Days() {
+        boolean actual = dateChecker.has31Days(DateChecker.Month.FEBRUARY);
+        String expectedMessage = " February should not have 31 days";
+        assertFalse(actual,expectedMessage);
+    }
+
+    @Test
+    public void testInvalidMonth(){
+        String expectedMessage = "Month Input is Invalid";
+        Exception exception = assertThrows(IllegalArgumentException.class,
+                () -> dateChecker.has31Days(null), expectedMessage);
+    }
+
 }
