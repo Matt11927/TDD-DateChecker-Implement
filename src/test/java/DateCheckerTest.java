@@ -14,4 +14,11 @@ public class DateCheckerTest {
         assertTrue(actual, expectedMessage);
     }
 
+    @Test
+    public void testNovemberDoesNotHave31Days(){
+        boolean actual = dateChecker.has31Days(DateChecker.Month.NOVEMBER);
+        String expectedMessage = "November should not have 31 days";
+        assertFalse(actual,expectedMessage);
+    }
+
 }
